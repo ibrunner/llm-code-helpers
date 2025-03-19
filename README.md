@@ -1,14 +1,15 @@
 # llm-code-helpers
 
 CLI tools for gathering and analyzing code for LLM processing, with a focus on merge request reviews.
+_Disclaimer:_ This code was mostly written using LLMs as an exercise in learning best practices with AI coding.
 
 ## Features
 
 - Analyzes local git branches/commits
-- Extracts TypeScript declarations and modified functions
+- TODO: Extracts TypeScript declarations and modified functions
 - Generates a markdown report with:
-  - File overview with declarations
-  - Modified function details
+  - TODO: File overview with declarations
+  - TODO: Modified function details
   - Git diffs in collapsible sections
   - Review prompt
 - Supports output to file or clipboard
@@ -93,15 +94,3 @@ yarn lint
 # Type check
 yarn typecheck
 ```
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'feat: add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-[Add your chosen license here]

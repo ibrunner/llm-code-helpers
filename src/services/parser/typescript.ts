@@ -1,6 +1,12 @@
 import type { TSESTree } from "@typescript-eslint/types";
 import type { Declaration, FileContext, FunctionContext } from "../../types";
 
+/**
+ * Extracts declarations and function contexts from a TypeScript AST
+ * @param ast - The TypeScript AST program node
+ * @param sourceCode - Original source code string
+ * @returns FileContext object containing declarations and modified functions
+ */
 export async function extractDeclarations(
   ast: TSESTree.Program,
   sourceCode: string
@@ -8,7 +14,10 @@ export async function extractDeclarations(
   const declarations: Declaration[] = [];
   const modifiedFunctions: FunctionContext[] = [];
 
-  // Walk the AST to find declarations
+  /**
+   * Recursively visits AST nodes to identify and extract declarations
+   * @param node - Current AST node being processed
+   */
   function visit(node: TSESTree.Node) {
     if (!node || !node.type || !node.loc) {
       return;
@@ -82,7 +91,10 @@ export async function extractDeclarations(
         });
       }
 
-      // Visit all child nodes
+      /**
+       * Recursively process child nodes
+       * Handles both array and object children that contain AST nodes
+       */
       for (const [key, value] of Object.entries(node)) {
         if (!value || typeof value !== "object") continue;
 

@@ -3,6 +3,12 @@ import { parse } from "@typescript-eslint/parser";
 import type { MRContextOptions, FileContext, DiffContext } from "../../types";
 import { extractDeclarations } from "../parser/typescript";
 
+/**
+ * Analyzes git changes between branches to extract file contexts and diffs
+ * @param {MRContextOptions} options - Configuration options including repository path and branch information
+ * @returns {Promise<{files: FileContext[], diffs: DiffContext[]}>} Object containing parsed file contexts and diffs
+ * @throws {Error} If git operations fail or no diff output is received
+ */
 export async function analyzeChanges(options: MRContextOptions): Promise<{
   files: FileContext[];
   diffs: DiffContext[];
@@ -110,6 +116,11 @@ export async function analyzeChanges(options: MRContextOptions): Promise<{
   }
 }
 
+/**
+ * Determines the default base branch for the repository
+ * @param {ReturnType<typeof simpleGit>} git - SimpleGit instance
+ * @returns {Promise<string>} Name of the default branch ('main' or 'master')
+ */
 async function determineDefaultBase(
   git: ReturnType<typeof simpleGit>
 ): Promise<string> {
@@ -129,6 +140,11 @@ async function determineDefaultBase(
   return "master";
 }
 
+/**
+ * Parses git diff output into structured hunk objects
+ * @param {string} diff - Raw git diff output
+ * @returns {DiffContext["hunks"]} Array of parsed diff hunks containing position and content information
+ */
 function parseHunks(diff: string): DiffContext["hunks"] {
   try {
     // Basic hunk parsing - this could be enhanced
