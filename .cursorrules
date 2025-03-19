@@ -1,0 +1,106 @@
+Code Analysis CLI
+================
+
+Description: CLI tools for gathering and analyzing code for LLM processing
+
+Best Practices
+-------------
+
+Code Organization:
+- Use clean architecture principles to separate concerns
+- Implement command pattern for different CLI operations
+- Follow SOLID principles, especially single responsibility
+- Use TypeScript for better type safety and maintainability
+- Implement proper error handling and logging
+- Write comprehensive tests for CLI commands
+
+Git Practices:
+- Use conventional commits (feat:, fix:, docs:, etc.)
+- Keep commits atomic and focused
+- Maintain a clean git history
+- Use .gitignore for node_modules, build artifacts, and sensitive files
+- Document git workflow in CONTRIBUTING.md
+
+Documentation:
+- Maintain clear README with setup and usage instructions
+- Use JSDoc for function and class documentation
+- Include examples for each CLI command
+- Document configuration options and environment variables
+
+Recommended Libraries
+-------------------
+
+Core:
+- repomix: For repository analysis and manipulation
+- commander: For building the CLI interface
+- chalk: For colorful terminal output
+- ora: For loading spinners
+- inquirer: For interactive prompts
+- glob: For file pattern matching
+- simple-git: For git operations
+
+Parsing:
+- tree-sitter: For precise code parsing
+- unified: For markdown processing
+- prettier: For code formatting
+
+Testing:
+- jest: For unit and integration testing
+- ts-jest: For TypeScript support in tests
+
+Development:
+- typescript: For type safety
+- eslint: For code linting
+- husky: For git hooks
+- nodemon: For development reload
+
+Project Structure
+---------------
+
+src/
+  ├── commands/          # Individual CLI command implementations
+  ├── services/
+  │   ├── git/          # Git-related operations
+  │   ├── parser/       # Code parsing and analysis
+  │   ├── llm/          # LLM integration and prompting
+  │   └── diff/         # Code diff generation and processing
+  ├── utils/            # Shared utilities and helpers
+  ├── types/            # TypeScript type definitions
+  └── config/           # Configuration management
+
+tests/
+  ├── unit/            # Unit tests
+  ├── integration/     # Integration tests
+  └── fixtures/        # Test data and mock files
+
+docs/
+  ├── api/             # API documentation
+  ├── examples/        # Usage examples
+  └── contributing/    # Contribution guidelines
+
+Configuration
+------------
+
+Recommended Settings:
+- Maximum file size: 10mb
+- Default ignore patterns:
+  * node_modules
+  * dist
+  * build
+  * .git
+
+Supported Languages:
+- JavaScript
+- TypeScript
+- Python
+- Java
+- Go
+- Rust
+
+CLI Commands
+-----------
+analyze: Analyze code structure and dependencies
+diff: Generate and process code diffs
+extract: Extract specific code segments or patterns
+prompt: Generate LLM prompts from code
+deps: Analyze project dependencies

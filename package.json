@@ -1,0 +1,43 @@
+{
+  "name": "llm-code-helpers",
+  "packageManager": "yarn@4.2.2",
+  "version": "0.1.0",
+  "description": "CLI tools for gathering and analyzing code for LLM processing",
+  "main": "dist/index.js",
+  "bin": {
+    "mr-context": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "prepare": "yarn build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@typescript-eslint/parser": "^6.0.0",
+    "@typescript-eslint/types": "^6.0.0",
+    "chalk": "^4.1.2",
+    "clipboardy": "^2.3.0",
+    "commander": "^11.0.0",
+    "ora": "^5.4.1",
+    "simple-git": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/clipboardy": "^2.0.1",
+    "@types/commander": "^2.12.2",
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.0.0",
+    "@types/ora": "^3.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "5.3.3"
+  },
+  "type": "commonjs"
+}
